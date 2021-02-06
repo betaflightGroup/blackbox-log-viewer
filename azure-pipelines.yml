@@ -49,8 +49,8 @@ stages:
     steps:
     - task: UseNode@1
       inputs:
-        version: '10.16.3'
-      displayName: 'Install Node.js 10.16.3'
+        version: '14.15.4'
+      displayName: 'Install Node.js 14.15.4'
     - script: yarn install
       displayName: 'Run yarn install'
     - script: yarn gulp release --win32
@@ -72,8 +72,8 @@ stages:
     steps:
     - task: UseNode@1
       inputs:
-        version: '10.16.3'
-      displayName: 'Install Node.js 10.16.3'
+        version: '14.15.4'
+      displayName: 'Install Node.js 14.15.4'
     - script: npm install -g gulp
       displayName: 'Install Gulp'
     - script: yarn install
@@ -97,8 +97,8 @@ stages:
     steps:
     - task: UseNode@1
       inputs:
-        version: '10.16.3'
-      displayName: 'Install Node.js 10.16.3'
+        version: '14.15.4'
+      displayName: 'Install Node.js 14.15.4'
     - script: yarn install
       displayName: 'Run yarn install'
     - script: yarn gulp release --linux64
