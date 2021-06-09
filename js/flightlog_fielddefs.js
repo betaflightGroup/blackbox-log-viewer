@@ -231,9 +231,13 @@ var
     ]),
 
     RC_SMOOTHING_DERIVATIVE_TYPE = makeReadOnly([
-        "OFF", 
         "PT1", 
         "BIQUAD"
+    ]),
+
+    RC_SMOOTHING_MODE = makeReadOnly([
+        "OFF", 
+        "ON"
     ]),
 
     RC_SMOOTHING_DEBUG_AXIS = makeReadOnly([
@@ -251,9 +255,10 @@ var
     ]),
 
     FILTER_TYPE = makeReadOnly([
-            "PT1",
-            "BIQUAD",
-            "FIR",
+        "PT1",
+        "BIQUAD",
+        "PT2",
+        "PT3",
     ]),
 
     DEBUG_MODE = [],
