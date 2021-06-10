@@ -371,7 +371,8 @@ var FlightLogParser = function(logData) {
             vbat_pid_gain             : "vbat_pid_compensation",
             yaw_accel_limit           : "yawRateAccelLimit",
             yaw_lowpass_hz            : "yaw_lpf_hz",
-            feedforward_transition    : "ff_transition"
+            feedforward_transition    : "ff_transition",
+            feedforward_weight        : "ff_weight"
         },
 
         frameTypes,
@@ -757,7 +758,6 @@ var FlightLogParser = function(logData) {
             case "magPID":
                 that.sysConfig.magPID = parseCommaSeparatedString(fieldValue,3); //[parseInt(fieldValue, 10), null, null];
             break;
-
             case "ff_weight":
                 // Add it to the end of the rollPID, pitchPID and yawPID
                 var ffValues = parseCommaSeparatedString(fieldValue);
@@ -765,14 +765,6 @@ var FlightLogParser = function(logData) {
                 that.sysConfig["pitchPID"].push(ffValues[1]);
                 that.sysConfig["yawPID"].push(ffValues[2]);
             break;
-            case "feedforward_weight":
-                // Add it to the end of the rollPID, pitchPID and yawPID
-                var ffValues = parseCommaSeparatedString(fieldValue);
-                that.sysConfig["rollPID"].push(ffValues[0]);
-                that.sysConfig["pitchPID"].push(ffValues[1]);
-                that.sysConfig["yawPID"].push(ffValues[2]);
-            break;
-
             /* End of CSV packed values */
 
             case "vbatcellvoltage":
