@@ -115,8 +115,7 @@ function HeaderDialog(dialog, onSave) {
         {name:'rc_smoothing_active_cutoffs_ff',    type:FIRMWARE_TYPE_BETAFLIGHT,  min:'4.3.0', max:'999.9.9'},
         {name:'rc_smoothing_active_cutoffs_sp',    type:FIRMWARE_TYPE_BETAFLIGHT,  min:'4.3.0', max:'999.9.9'},
         {name:'rc_smoothing_active_cutoffs_thr',   type:FIRMWARE_TYPE_BETAFLIGHT,  min:'4.3.0', max:'999.9.9'},
-        {name:'dyn_notch_count'              , type:FIRMWARE_TYPE_BETAFLIGHT,  min:'4.3.0', max:'999.9.9'},
-        {name:'dyn_notch_bandwidth_hz'       , type:FIRMWARE_TYPE_BETAFLIGHT,  min:'4.3.0', max:'999.9.9'},
+        {name:'dyn_notch_count'               , type:FIRMWARE_TYPE_BETAFLIGHT,  min:'4.3.0', max:'999.9.9'},
     ];
 
 	function isParameterValid(name) {
