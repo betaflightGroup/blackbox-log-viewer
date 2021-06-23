@@ -410,11 +410,11 @@ function FlightLogFieldPresenter() {
             'debug[3]':'Not Used',
         },
         'FF_INTERPOLATED' : {
-            'debug[all]':'FF Interpolated', 
-            'debug[0]':'Setpoint Delta Impl [Roll]',
-            'debug[1]':'Boost Amount',
-            'debug[2]':'Boost Amount Clip [Roll]',
-            'debug[3]':'Clip',
+            'debug[all]':'FF Interpolated [roll]', 
+            'debug[0]':'Setpoint Delta Impl [roll]',
+            'debug[1]':'Boost amount [roll]',
+            'debug[2]':'Boost amount, clipped [roll]',
+            'debug[3]':'Clip amount [roll]',
         },
         'RTH' : {
             'debug[all]':'RTH',
@@ -431,12 +431,22 @@ function FlightLogFieldPresenter() {
 
         DEBUG_FRIENDLY_FIELD_NAMES = {...DEBUG_FRIENDLY_FIELD_NAMES_INITIAL};
 
+        if (firmwareType === FIRMWARE_TYPE_BETAFLIGHT && semver.gte(firmwareVersion, '4.2.0')) {
+            DEBUG_FRIENDLY_FIELD_NAMES.FF_INTERPOLATED = {
+                'debug[all]':'FF_Interpolated [roll]',
+                'debug[0]':'Setpoint Delta [roll]',
+                'debug[1]':'Acceleration [roll]',
+                'debug[2]':'Acceleration, clipped [roll]',
+                'debug[3]':'Duplicate Counter [roll]',
+            };
+        }
         if (firmwareType === FIRMWARE_TYPE_BETAFLIGHT && semver.gte(firmwareVersion, '4.3.0')) {
             DEBUG_FRIENDLY_FIELD_NAMES.FF_INTERPOLATED = {
-                'debug[0]':'Raw FF Derivative [Roll]',
-                'debug[1]':'Cleaned FF Derivative ',
-                'debug[2]':'Cleaned Boost Amount [Roll]',
-                'debug[3]':'Duplicate Marker',
+                'debug[all]':'Feedforward [roll]',
+                'debug[0]':'Setpoint, interpolated [roll]',
+                'debug[1]':'Delta, smoothed [roll]',
+                'debug[2]':'Boost, smoothed [roll]',
+                'debug[3]':'rcCommand Delta [roll]',
             };
         }
     };
