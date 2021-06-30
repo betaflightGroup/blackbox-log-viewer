@@ -552,6 +552,13 @@ GraphConfig.load = function(config) {
                                 inputRange: 1000,
                                 outputRange: 1.0
                             };
+                            case 'debug[3]': // rcCommand
+                            return {
+                                offset: 0,
+                                power: 1.0,
+                                inputRange: 10000,
+                                outputRange: 1.0
+                            };
                         }
                         break;
                 }
