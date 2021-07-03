@@ -462,6 +462,13 @@ var
         "FIRST",
         "SECOND",
         "BOTH",
+    ]),
+
+    FF_AVERAGING = makeReadOnly([
+        "OFF",
+        "2_POINT",
+        "3_POINT",
+        "4_POINT",
     ]);
 
 function adjustFieldDefsList(firmwareType, firmwareVersion) {

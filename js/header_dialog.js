@@ -708,7 +708,7 @@ function HeaderDialog(dialog, onSave) {
         setParameter('dtermSetpointWeight'		,sysConfig.dtermSetpointWeight,2);
 
         if(activeSysConfig.firmwareType == FIRMWARE_TYPE_BETAFLIGHT && semver.gte(activeSysConfig.firmwareVersion, '4.3.0')) {
-            setParameter('feedforwardAveraging'  ,sysConfig.ff_averaging,0);
+            renderSelect('feedforwardAveraging'  ,sysConfig.ff_averaging, FF_AVERAGING);
             setParameter('feedforwardSmoothing'  ,sysConfig.ff_smooth_factor,0);
             setParameter('feedforwardJitter'     ,sysConfig.ff_jitter_factor,0);
             setParameter('feedforwardMaxRate'    ,sysConfig.ff_max_rate_limit,0);
