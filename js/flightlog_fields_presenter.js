@@ -431,32 +431,32 @@ function FlightLogFieldPresenter() {
 
         DEBUG_FRIENDLY_FIELD_NAMES = {...DEBUG_FRIENDLY_FIELD_NAMES_INITIAL};
 
-        if (firmwareType === FIRMWARE_TYPE_BETAFLIGHT && semver.gte(firmwareVersion, '4.2.0')) {
-            DEBUG_FRIENDLY_FIELD_NAMES.FF_INTERPOLATED = {
-                'debug[all]':'FF_Interpolated [roll]',
-                'debug[0]':'Setpoint Delta [roll]',
-                'debug[1]':'Acceleration [roll]',
-                'debug[2]':'Acceleration, clipped [roll]',
-                'debug[3]':'Duplicate Counter [roll]',
-            };
-        }
-        if (firmwareType === FIRMWARE_TYPE_BETAFLIGHT && semver.gte(firmwareVersion, '4.3.0')) {
-            DEBUG_FRIENDLY_FIELD_NAMES.FF_INTERPOLATED = {
-                'debug[all]':'Feedforward [roll]',
-                'debug[0]':'Setpoint, interpolated [roll]',
-                'debug[1]':'Delta, smoothed [roll]',
-                'debug[2]':'Boost, smoothed [roll]',
-                'debug[3]':'rcCommand Delta [roll]',
-            };
-        }
-        if (firmwareType === FIRMWARE_TYPE_BETAFLIGHT && semver.gte(firmwareVersion, '4.3.0')) {
-            DEBUG_FRIENDLY_FIELD_NAMES.FF_LIMIT = {
-                'debug[all]':'Feedforward Limit [roll]',
-                'debug[0]':'Feedforward input [roll]',
-                'debug[1]':'Feedforward input [pitch]',
-                'debug[2]':'Feedforward limited [roll]',
-                'debug[3]':'Not Used',
-            };
+        if (firmwareType === FIRMWARE_TYPE_BETAFLIGHT) {
+            if (semver.gte(firmwareVersion, '4.2.0')) {
+                DEBUG_FRIENDLY_FIELD_NAMES.FF_INTERPOLATED = {
+                    'debug[all]':'Feedforward [roll]',
+                    'debug[0]':'Setpoint Delta [roll]',
+                    'debug[1]':'Acceleration [roll]',
+                    'debug[2]':'Acceleration, clipped [roll]',
+                    'debug[3]':'Duplicate Counter [roll]',
+                };
+            }
+            if (semver.gte(firmwareVersion, '4.3.0')) {
+                DEBUG_FRIENDLY_FIELD_NAMES.FF_INTERPOLATED = {
+                    'debug[all]':'Feedforward [roll]',
+                    'debug[0]':'Setpoint, interpolated [roll]',
+                    'debug[1]':'Delta, smoothed [roll]',
+                    'debug[2]':'Boost, smoothed [roll]',
+                    'debug[3]':'rcCommand Delta [roll]',
+                };
+                DEBUG_FRIENDLY_FIELD_NAMES.FF_LIMIT = {
+                    'debug[all]':'Feedforward Limit [roll]',
+                    'debug[0]':'Feedforward input [roll]',
+                    'debug[1]':'Feedforward input [pitch]',
+                    'debug[2]':'Feedforward limited [roll]',
+                    'debug[3]':'Not Used',
+                };
+            }
         }
     };
 
