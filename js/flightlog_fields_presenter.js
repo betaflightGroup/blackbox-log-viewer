@@ -404,9 +404,9 @@ function FlightLogFieldPresenter() {
         },
         'FF_LIMIT' : {
             'debug[all]':'FF Limit', 
-            'debug[0]':'FF [Roll]',
-            'debug[1]':'FF [Pitch]',
-            'debug[2]':'FF Final [Roll]',
+            'debug[0]':'FF input [roll]',
+            'debug[1]':'FF input [pitch]',
+            'debug[2]':'FF limited [roll]',
             'debug[3]':'Not Used',
         },
         'FF_INTERPOLATED' : {
@@ -449,8 +449,17 @@ function FlightLogFieldPresenter() {
                 'debug[3]':'rcCommand Delta [roll]',
             };
         }
+        if (firmwareType === FIRMWARE_TYPE_BETAFLIGHT && semver.gte(firmwareVersion, '4.3.0')) {
+            DEBUG_FRIENDLY_FIELD_NAMES.FF_LIMIT = {
+                'debug[all]':'Feedforward Limit [roll]',
+                'debug[0]':'Feedforward input [roll]',
+                'debug[1]':'Feedforward input [pitch]',
+                'debug[2]':'Feedforward limited [roll]',
+                'debug[3]':'Not Used',
+            };
+        }
     };
-        
+
     FlightLogFieldPresenter.presentFlags = function(flags, flagNames) {
         var 
             printedFlag = false,

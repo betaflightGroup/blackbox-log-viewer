@@ -322,8 +322,8 @@ var
             "BARO",
             "GPS_RESCUE_THROTTLE_PID",
             "DYN_IDLE",
-            "FF_LIMIT",
-            "FF_INTERPOLATED",
+            "FEEDFORWARD_LIMIT",
+            "FEEDFORWARD",
     ]),
 
     SUPER_EXPO_YAW = makeReadOnly([

@@ -535,37 +535,37 @@ GraphConfig.load = function(config) {
                                 return getCurveForMinMaxFieldsZeroOffset(fieldName);
                         }
                         break;
-                    case 'FF_LIMIT':
+                    case 'FEEDFORWARD_LIMIT':
                         return {
                             offset: 0,
                             power: 1.0,
                             inputRange: 300,
                             outputRange: 1.0
                         };
-                    case 'FF_INTERPOLATED':
+                    case 'FEEDFORWARD':
                         switch (fieldName) {
                             case 'debug[0]': // in 4.3 is interpolated setpoint
-                            return {
-                                offset: 0,
-                                power: 1.0,
-                                inputRange: maxDegreesSecond(gyroScaleMargin),
-                                outputRange: 1.0
-                            };
+                                return {
+                                    offset: 0,
+                                    power: 1.0,
+                                    inputRange: maxDegreesSecond(gyroScaleMargin),
+                                    outputRange: 1.0
+                                };
                             case 'debug[1]': // feedforward delta element
                             case 'debug[2]': // feedforward boost element
-                            return {
-                                offset: 0,
-                                power: 1.0,
-                                inputRange: 1000,
-                                outputRange: 1.0
-                            };
+                                return {
+                                    offset: 0,
+                                    power: 1.0,
+                                    inputRange: 1000,
+                                    outputRange: 1.0
+                                };
                             case 'debug[3]': // rcCommand delta
-                            return {
-                                offset: 0,
-                                power: 1.0,
-                                inputRange: 10000,
-                                outputRange: 1.0
-                            };
+                                return {
+                                    offset: 0,
+                                    power: 1.0,
+                                    inputRange: 10000,
+                                    outputRange: 1.0
+                                };
                         }
                         break;
                 }
