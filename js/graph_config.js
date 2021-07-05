@@ -535,14 +535,27 @@ GraphConfig.load = function(config) {
                                 return getCurveForMinMaxFieldsZeroOffset(fieldName);
                         }
                         break;
-                    case 'FEEDFORWARD_LIMIT':
-                        return {
-                            offset: 0,
-                            power: 1.0,
-                            inputRange: 300,
-                            outputRange: 1.0
-                        };
-                    case 'FEEDFORWARD':
+                    case 'FF_INTERPOLATED':
+                        switch (fieldName) {
+                            case 'debug[0]': // setpoint Delta
+                            case 'debug[1]': // AccelerationModified
+                            case 'debug[2]': // Acceleration
+                                return {
+                                    offset: 0,
+                                    power: 1.0,
+                                    inputRange: 1000,
+                                    outputRange: 1.0
+                                };
+                            case 'debug[3]': // Clip or Count
+                                return {
+                                    offset: -10,
+                                    power: 1.0,
+                                    inputRange: 10,
+                                    outputRange: 1.0
+                                };
+                        }
+                        break;
+                    case 'FEEDFORWARD': // replaces FF_INTERPOLATED in 4.3
                         switch (fieldName) {
                             case 'debug[0]': // in 4.3 is interpolated setpoint
                                 return {
@@ -568,6 +581,20 @@ GraphConfig.load = function(config) {
                                 };
                         }
                         break;
+                    case 'FF_LIMIT':
+                        return {
+                            offset: 0,
+                            power: 1.0,
+                            inputRange: 300,
+                            outputRange: 1.0
+                        };
+                    case 'FEEDFORWARD_LIMIT':
+                        return {
+                            offset: 0,
+                            power: 1.0,
+                            inputRange: 300,
+                            outputRange: 1.0
+                        };
                 }
             }
             // if not found above then

@@ -442,14 +442,14 @@ function FlightLogFieldPresenter() {
                 };
             }
             if (semver.gte(firmwareVersion, '4.3.0')) {
-                DEBUG_FRIENDLY_FIELD_NAMES.FF_INTERPOLATED = {
+                DEBUG_FRIENDLY_FIELD_NAMES.FEEDFORWARD = {
                     'debug[all]':'Feedforward [roll]',
                     'debug[0]':'Setpoint, interpolated [roll]',
                     'debug[1]':'Delta, smoothed [roll]',
                     'debug[2]':'Boost, smoothed [roll]',
                     'debug[3]':'rcCommand Delta [roll]',
                 };
-                DEBUG_FRIENDLY_FIELD_NAMES.FF_LIMIT = {
+                DEBUG_FRIENDLY_FIELD_NAMES.FEEDFORWARD_LIMIT = {
                     'debug[all]':'Feedforward Limit [roll]',
                     'debug[0]':'Feedforward input [roll]',
                     'debug[1]':'Feedforward input [pitch]',

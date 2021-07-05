@@ -322,8 +322,8 @@ var
             "BARO",
             "GPS_RESCUE_THROTTLE_PID",
             "DYN_IDLE",
-            "FEEDFORWARD_LIMIT",
-            "FEEDFORWARD",
+            "FF_LIMIT",
+            "FF_INTERPOLATED",
     ]),
 
     SUPER_EXPO_YAW = makeReadOnly([
@@ -479,6 +479,10 @@ function adjustFieldDefsList(firmwareType, firmwareVersion) {
         if(semver.gte(firmwareVersion, '4.1.0')) {
             DEBUG_MODE.splice(DEBUG_MODE.indexOf('DUAL_GYRO'),          1);
             DEBUG_MODE.splice(DEBUG_MODE.indexOf('DUAL_GYRO_COMBINED'), 1);
+        }
+        if(semver.gte(firmwareVersion, '4.3.0')) {
+            DEBUG_MODE.splice(DEBUG_MODE.indexOf('FF_INTERPOLATED'), 1, 'FEEDFORWARD');
+            DEBUG_MODE.splice(DEBUG_MODE.indexOf('FF_LIMIT'),        1, 'FEEDFORWARD_LIMIT');
         }
         DEBUG_MODE = makeReadOnly(DEBUG_MODE);
 
