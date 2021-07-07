@@ -718,7 +718,7 @@ function HeaderDialog(dialog, onSave) {
             setParameter('feedforwardJitter'     ,"0",0);
             setParameter('feedforwardMaxRate'    ,"0",0);
         }
-        setParameter('ff_transition'            ,sysConfig.ff_transition,2);
+        setParameter('feedforwardTransition'            ,sysConfig.ff_transition,2);
         setParameter('feedforwardBoost'         ,sysConfig.ff_boost,0);
 
         setParameter('abs_control_gain'         ,sysConfig.abs_control_gain, 0);
