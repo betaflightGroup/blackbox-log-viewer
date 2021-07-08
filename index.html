@@ -1724,7 +1724,19 @@
                                                             <!-- list generated here -->
                                                         </select>
                                                     </td>
-                                                    <td name='rcSmoothingAutoFactorSetpoint'>
+                                                    <td name="rcSmoothingRxAverage">
+                                                        <label>RX Average (ms)</label>
+                                                        <input type="number" step="0.1" min="0"/>
+                                                    </td>
+                                                    <td name='rcSmoothingDebugAxis'>
+                                                        <label>Debug Axis</label>
+                                                        <select>
+                                                            <!-- list generated here -->
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" name='rcSmoothingAutoFactorSetpoint'>
                                                         <label>Setpoint auto fact</label>
                                                         <input type="number" step="1" min="0" max="250" />
                                                     </td>
@@ -1745,14 +1757,8 @@
                                                     <td name="rcSmoothingThrottleHz">
                                                         <label>Throttle cutoff Hz</label>
                                                         <input type="number" step="1" min="0" max="255" />
-                                                    </td>
-                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td name="rcSmoothingRxAverage">
-                                                        <label>RX Average (ms)</label>
-                                                        <input type="number" step="0.1" min="0"/>
-                                                    </td>
                                                     <td name='rcSmoothingActiveCutoffsSp'>
                                                         <label>Active Cutoff Setpoint</label>
                                                         <input type="number" step="1" min="0"/>
@@ -1764,14 +1770,6 @@
                                                     <td name='rcSmoothingActiveCutoffsThr'>
                                                         <label>Active Cutoff Throttle</label>
                                                         <input type="number" step="1" min="0"/>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td name='rcSmoothingDebugAxis'>
-                                                        <label>Debug Axis</label>
-                                                        <select>
-                                                            <!-- list generated here -->
-                                                        </select>
                                                     </td>
                                                 </tr>
                                             </tbody>
