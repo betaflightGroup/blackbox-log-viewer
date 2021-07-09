@@ -265,12 +265,10 @@ var FlightLogParser = function(logData) {
             vbat_pid_compensation:null,             // VBAT PID compensation
             rate_limits:[null, null, null],         // RC Rate limits
             rc_smoothing:null,                      // RC Control Smoothing
-            rc_smoothing_type:null,                 // Type of the RC Smoothing
             rc_interpolation:null,                  // RC Control Interpolation type
             rc_interpolation_channels:null,         // RC Control Interpotlation channels
             rc_interpolation_interval:null,         // RC Control Interpolation Interval
             rc_smoothing_active_cutoffs:[null,null],// RC Smoothing active cutoffs
-            rc_smoothing_auto_factor:null,          // RC Smoothing auto factor
             rc_smoothing_cutoffs:[null, null],      // RC Smoothing input and derivative cutoff
             rc_smoothing_filter_type:[null,null],   // RC Smoothing input and derivative type
             rc_smoothing_rx_average:null,           // RC Smoothing rx average readed in ms
@@ -372,7 +370,9 @@ var FlightLogParser = function(logData) {
             yaw_accel_limit           : "yawRateAccelLimit",
             yaw_lowpass_hz            : "yaw_lpf_hz",
             feedforward_transition    : "ff_transition",
-            feedforward_weight        : "ff_weight"
+            feedforward_weight        : "ff_weight",
+            rc_smoothing_auto_factor  : "rc_smoothing_auto_factor_setpoint",
+            rc_smoothing_type         : "rc_smoothing_mode"
         },
 
         frameTypes,
@@ -588,8 +588,7 @@ var FlightLogParser = function(logData) {
             case "gyro_cal_on_first_arm":
             case "vbat_pid_compensation":
             case "rc_smoothing":
-//             case "rc_smoothing_auto_factor":
-//             case "rc_smoothing_type":
+            case "rc_smoothing_type":
             case "rc_smoothing_debug_axis":
             case "rc_smoothing_rx_average":
             case "rc_smoothing_mode":  // 4.3 rc smoothing stuff
@@ -748,6 +747,7 @@ var FlightLogParser = function(logData) {
             case "velPID":
             case "motorOutput":
             case "rate_limits":
+            case "rc_smoothing_cutoffs":
             case "rc_smoothing_active_cutoffs":
             case "rc_smoothing_active_cutoffs_ff_sp_thr":
             case "gyro_lowpass_dyn_hz":
